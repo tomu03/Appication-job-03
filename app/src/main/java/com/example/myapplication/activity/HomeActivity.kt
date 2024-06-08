@@ -51,7 +51,8 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
+
         drawerLayout = findViewById(R.id.drawerLayout)
         navview = findViewById(R.id.navview)
         //assign drawerlayout to actionbardrawertoggole
