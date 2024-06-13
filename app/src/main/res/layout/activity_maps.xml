@@ -16,17 +16,17 @@
         map:layout_constraintHorizontal_bias="0.0"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
-        map:layout_constraintVertical_bias="1.0" />
+        map:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/btnZoomIn"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="560dp"
+        android:layout_marginTop="568dp"
         android:backgroundTint="@color/white"
-        android:src="@drawable/zoomin"
+        android:src="@drawable/zoom_in"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintHorizontal_bias="0.917"
+        map:layout_constraintHorizontal_bias="0.955"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="@+id/map" />
 
@@ -35,13 +35,12 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:backgroundTint="@color/white"
-        android:src="@drawable/zoomout"
+        android:src="@drawable/zoom_out"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="@+id/btnZoomIn"
         map:layout_constraintHorizontal_bias="0.0"
         map:layout_constraintStart_toStartOf="@+id/btnZoomIn"
         map:layout_constraintTop_toBottomOf="@+id/btnZoomIn"
         map:layout_constraintVertical_bias="0.253" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
