@@ -62,49 +62,70 @@
             android:enabled="false" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Add the Delete Button -->
+
     <Button
         android:id="@+id/updateBtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="#00FFFFFF"
         android:text="Update"
         android:textColor="#000000"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
         app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:text="Delete Account"
+        android:textColor="#FF0000"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/updateBtn"
+        app:layout_constraintStart_toStartOf="@+id/updateBtn"
+        app:layout_constraintTop_toBottomOf="@+id/updateBtn"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="#FF0000"
+        app:strokeWidth="1dp" />
+
     <ImageButton
         android:id="@+id/homeBtn"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
         android:src="@drawable/home"
         android:textColor="#000000"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateBtn"
+        app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 
     <ImageButton
         android:id="@+id/logoutBtn"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
         android:src="@drawable/logout"
         android:textColor="#000000"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/homeBtn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/homeBtn"
         app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 

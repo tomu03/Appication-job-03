@@ -27,7 +27,6 @@ import com.google.firebase.auth.auth
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var authViewModel: AuthenticationViewModel
-
     private lateinit var firestoreViewModel: FirestoreViewModel
     private lateinit var userAdapter: UserAdapter
     private lateinit var recyclerViewUsers: RecyclerView

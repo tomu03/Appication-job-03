@@ -19,6 +19,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var firestoreViewModel: FirestoreViewModel
     private lateinit var locationViewModel: LocationViewModel
     private lateinit var buttonUpdateProfile: Button
+    private lateinit var buttonDelete: Button // Add buttonDelete
     private lateinit var textViewEmail: EditText
     private lateinit var editTextNewLocation: EditText
     private lateinit var editTextNewName: EditText
@@ -29,9 +30,10 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        buttonUpdateProfile = findViewById(R.id.updateBtn)
-        homeBtn = findViewById(R.id.homeBtn)
-        logoutBtn = findViewById(R.id.logoutBtn)
+        buttonUpdateProfile = findViewById(R.id.updateBtn)  // Initialize buttonUpdateProfile
+        buttonDelete = findViewById(R.id.btnDelete) // Initialize buttonDelete
+        homeBtn = findViewById(R.id.homeBtn)        // Initialize buttonHome
+        logoutBtn = findViewById(R.id.logoutBtn)    // Initialize buttonLogout
         textViewEmail = findViewById(R.id.emailEt)
         editTextNewLocation = findViewById(R.id.locationEt)
         editTextNewName = findViewById(R.id.nameEt)
@@ -56,6 +58,9 @@ class ProfileActivity : AppCompatActivity() {
             val newLocation = editTextNewLocation.text.toString()
 
             updateProfile(newName, newLocation)
+        }
+        buttonDelete.setOnClickListener {
+            deleteUser()
         }
     }
 
@@ -92,6 +97,27 @@ class ProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
         } else {
             // Handle the case where the current user is null
+            Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun deleteUser() {
+        val currentUser = authViewModel.getCurrentUser()
+        if (currentUser != null) {
+            val userId = currentUser.uid
+            // Delete user from Firestore and Firebase Auth
+            firestoreViewModel.deleteUser(userId) { success ->
+                if (success) {
+                    // Delete successful, sign out and navigate to login screen
+                    firebaseAuth.signOut()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
+                } else {
+                    // Delete failed
+                    Toast.makeText(this, "Failed to delete user", Toast.LENGTH_SHORT).show()
+                }
+            }
+        } else {
             Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show()
         }
     }

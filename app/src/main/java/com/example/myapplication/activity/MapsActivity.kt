@@ -18,6 +18,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var firestoreViewModel: FirestoreViewModel
     private lateinit var btnZoomIn :ImageButton
     private lateinit var btnZoomOut :ImageButton
+    private lateinit var btnFocusMarker: ImageButton
+    private var markerPosition: LatLng? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         btnZoomIn=findViewById(R.id.btnZoomIn)
         btnZoomOut=findViewById(R.id.btnZoomOut)
+        btnFocusMarker = findViewById(R.id.btnFocusMarker)
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -36,6 +39,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // Set up click listeners for zoom buttons
         btnZoomIn.setOnClickListener { zoomIn() }
         btnZoomOut.setOnClickListener { zoomOut() }
+        btnFocusMarker.setOnClickListener { focusMarker() }
     }
 
     override fun onMapReady(map: GoogleMap) {
@@ -48,8 +52,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (userLocation.isNotEmpty()) {
                     val latLng = parseLocation(userLocation)
                     val markerOptions = MarkerOptions().position(latLng).title(user.displayName)
-                   mMap.addMarker(markerOptions)
+                    mMap.addMarker(markerOptions)
+
+                    // Assuming the first marker should be focused initially
+                    if (markerPosition == null) {
+                        markerPosition = latLng
+                    }
                 }
+            }
+
+            // Move camera to the marker position if available
+            markerPosition?.let {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(it, 13f))
             }
         }
     }
@@ -68,4 +82,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun zoomOut() {
         mMap.animateCamera(CameraUpdateFactory.zoomOut())
     }
+
+    private fun focusMarker() {
+        markerPosition?.let {
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(it, 15f))
+        }
+    }
+
 }

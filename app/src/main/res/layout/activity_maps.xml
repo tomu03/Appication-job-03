@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MapsActivity" >
+    tools:context=".activity.MapsActivity">
 
     <fragment
         android:id="@+id/map"
@@ -16,13 +16,13 @@
         map:layout_constraintHorizontal_bias="0.0"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
-        map:layout_constraintVertical_bias="0.0" />
+        map:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/btnZoomIn"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="568dp"
+        android:layout_marginTop="504dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/zoom_in"
         map:layout_constraintEnd_toEndOf="parent"
@@ -34,13 +34,26 @@
         android:id="@+id/btnZoomOut"
         android:layout_width="48dp"
         android:layout_height="48dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/zoom_out"
-        map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="@+id/btnZoomIn"
         map:layout_constraintHorizontal_bias="0.0"
         map:layout_constraintStart_toStartOf="@+id/btnZoomIn"
-        map:layout_constraintTop_toBottomOf="@+id/btnZoomIn"
-        map:layout_constraintVertical_bias="0.253" />
+        map:layout_constraintTop_toBottomOf="@+id/btnZoomIn" />
+
+    <ImageButton
+        android:id="@+id/btnFocusMarker"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/focus"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="@+id/btnZoomOut"
+        map:layout_constraintHorizontal_bias="0.0"
+        map:layout_constraintStart_toStartOf="@+id/btnZoomOut"
+        map:layout_constraintTop_toBottomOf="@+id/btnZoomOut"
+        map:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
