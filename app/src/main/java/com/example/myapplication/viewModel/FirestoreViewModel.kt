@@ -65,19 +65,7 @@ class FirestoreViewModel : ViewModel() {
 
 
 
-    // Function to delete user
-    fun deleteUser(userId: String, callback: (Boolean) -> Unit) {
-        usersCollection.document(userId)
-            .delete()
-            .addOnSuccessListener {
-                // User deleted successfully
-                callback(true)
-            }
-            .addOnFailureListener { e ->
-                // Handle failure
-                callback(false)
-            }
-    }
+
 
     //update the Location
     fun updateUserLocation(userId: String, location: String) {

@@ -4,8 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class AuthenticationViewModel: ViewModel() {
-
+class AuthenticationViewModel : ViewModel() {
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     fun login(email: String, password: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {

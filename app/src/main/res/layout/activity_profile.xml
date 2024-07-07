@@ -64,6 +64,7 @@
 
     <!-- Add the Delete Button -->
 
+
     <Button
         android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
@@ -73,28 +74,13 @@
         android:text="Update"
         android:textColor="#000000"
         app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:strokeColor="#000000"
-        app:strokeWidth="1dp" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#00FFFFFF"
-        android:text="Delete Account"
-        android:textColor="#FF0000"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/updateBtn"
-        app:layout_constraintStart_toStartOf="@+id/updateBtn"
-        app:layout_constraintTop_toBottomOf="@+id/updateBtn"
         app:layout_constraintVertical_bias="0.0"
-        app:strokeColor="#FF0000"
+        app:strokeColor="#000000"
         app:strokeWidth="1dp" />
 
     <ImageButton

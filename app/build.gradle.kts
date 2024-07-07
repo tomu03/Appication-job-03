@@ -74,4 +74,5 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
     // Testing Fragments in Isolation
     debugImplementation("androidx.fragment:fragment-testing:$fragment_version")
+
 }
